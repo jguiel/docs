@@ -1,15 +1,15 @@
-### Creating an Anaconda3 environment
+## Creating an Anaconda3 environment
 
 Creating an Anaconda3 environment will generate an isolated container/folder for project files and dependencies (packages/libraries). From the Start Menu, launch Anaconda Prompt and type the following to create a new project environment.
 
 `(base) C:\Users\johns>conda create --name MyProject`
 
-### Adding a package to a conda environment
+## Adding a package to a conda environment
 Packages can either be stored globally in the `C:\\...\\...\anaconda3\Lib\site-packages` folder, available to all conda environments, or installed locally to a specific environment and isolated from others. If a package exists in both locations, the environment-specific package takes precedence. You can install a package to a specific environment by specifying the environment by name using the `-n` parameter of `conda install`:
 
 `(base) C:\Users\johns>conda install -n MyProject numpy`
 
-### Activating and using a conda environment
+## Activating and using a conda environment
 Because environments are intended to act as project or domain-specfic scopes, you will likely have many of them. To switch between environments, you `activate` and `deactivate` them:
 
 ```
@@ -35,20 +35,23 @@ At this point, we are now using a python interpreter within the MyProject enviro
 [1 2 3 4 5]
 ```
 
-### Using Spyder
+## Using Spyder
 By default, Anaconda3 installs the Spyder IDE. The Spyder IDE available in the Start Menu uses the iPython interpreter and provides access to the global (base) conda environment/packages. To use Spyder with a specific environment, Spyder must be installed as a package within that environment. First, if you're still in the python interpreter session (denoted by the '>>>'), exit it:
 
 `>>> quit()`
 
 Now things get a bit confusing. Before, we used `conda install -n MyProject numpy` to install a package to the MyProject environment from outside the MyProject environment. The conda 'binary' (command-line executable) can also be run from within an environment, but you will often see others instead using the version of pip specific to the environment they're working with. It's a bit easier to visualize once you understand how an 'environment' is structured:
 
-MyProject environment at `C:\Users\johns\anaconda3\envs\MyProject`:
+MyProject environment at `C:\Users\johns\anaconda3\envs\MyProject`:  
+
 ![](https://i.imgur.com/QQBpwcU.png)
 
-Base conda environment at `C:\Users\johns\anaconda3`:
+Base conda environment at `C:\Users\johns\anaconda3`:  
+
 ![](https://i.imgur.com/5DvjjJU.png)
 
-Traditional Python installation at `C:\Python39`:
+Traditional Python installation at `C:\Python39`:  
+
 ![](https://i.imgur.com/mGqOCXM.png)
 
 Each of these folders contain similar subfolders because they all contain bits and pieces of a full Python installation. Each of these folders also contain their own version/instance of pip, so it's important to remember under which context/environment pip is being called.
